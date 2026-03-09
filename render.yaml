@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: zas-trac-api-test
+    env: python
+    region: frankfurt  # можно оставить по умолчанию, или выбрать близкий регион
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port 10000"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
